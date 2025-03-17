@@ -43,6 +43,29 @@ document.getElementById("riskForm").addEventListener("submit", function(event) {
 riskCard.querySelector(".resolveBtn").addEventListener("click", function () {
     riskCard.remove();
 });
+// Task 5:
+function increaseRiskLevels() {
+    document.querySelectorAll(".riskCard").forEach((card) => {
+        let riskLevelElement = card.querySelector("p:nth-of-type(1)"); 
+        let currentRiskLevel = riskLevelElement.textContent.split(": ")[1]; 
+        let newRiskLevel = currentRiskLevel;
+        if (currentRiskLevel === "Low") {
+            newRiskLevel = "Medium";
+            card.style.backgroundColor = "yellow"; 
+            card.style.color = "black";
+        } else if (currentRiskLevel === "Medium") {
+            newRiskLevel = "High";
+            card.style.backgroundColor = "red"; 
+            card.style.color = "white";
+        }
+        riskLevelElement.textContent = `Risk Level: ${newRiskLevel}`;
+    });
+}
+const increaseRiskButton = document.createElement("button");
+increaseRiskButton.textContent = "Increase Risk Levels";
+increaseRiskButton.addEventListener("click", increaseRiskLevels);
+document.body.insertBefore(increaseRiskButton, riskDashboard);
+addRiskItem("Employee Retention", "Low", "HR");
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 addRiskItem("Market Fluctuations", "High", "Finance"); 
