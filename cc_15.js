@@ -6,6 +6,19 @@ console.log("Risk Dashboard Loaded");
 function addRiskItem (riskName, riskLevel, department) {
     const riskCard =document.createElement ("div");
     riskCard.classList.add("riskCard");
+// Task #4:
+    // Apply different background colors based on risk level
+    if (riskLevel.toLowerCase() === "high") {
+        riskCard.style.backgroundColor = "red";
+        riskCard.style.color = "white";
+    } else if (riskLevel.toLowerCase() === "medium") {
+        riskCard.style.backgroundColor = "yellow";
+        riskCard.style.color = "black";
+    } else if (riskLevel.toLowerCase() === "low") {
+        riskCard.style.backgroundColor = "green";
+        riskCard.style.color = "white";
+    }
+
 // Inner HTML for risk details
     riskCard.innerHTML = `
     <h3>${riskName}</h3>
@@ -33,3 +46,5 @@ riskCard.querySelector(".resolveBtn").addEventListener("click", function () {
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 addRiskItem("Market Fluctuations", "High", "Finance"); 
+addRiskItem("Cybersecurity Threat", "High", "IT");
+addRiskItem("HR Compliance Issue", "Low", "Human Resources");
