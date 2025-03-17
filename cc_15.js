@@ -61,6 +61,12 @@ function increaseRiskLevels() {
         riskLevelElement.textContent = `Risk Level: ${newRiskLevel}`;
     });
 }
+// Task #6:
+riskDashboard.addEventListener("click", function(event) {
+    if (event.target.classList.contains("riskCard")) {
+        event.stopPropagation(); // Stops the event from bubbling up
+    }
+});
 const increaseRiskButton = document.createElement("button");
 increaseRiskButton.textContent = "Increase Risk Levels";
 increaseRiskButton.addEventListener("click", increaseRiskLevels);
