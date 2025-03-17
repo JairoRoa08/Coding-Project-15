@@ -25,7 +25,11 @@ document.getElementById("riskForm").addEventListener("submit", function(event) {
     if (riskName && riskLevel && department) {
         addRiskItem(riskName, riskLevel, department);
     }
-    document.getElementById("riskInput").value = "";
+});
+// Task #3:
+riskCard.querySelector(".resolveBtn").addEventListener("click", function () {
+    riskCard.remove();
 });
 addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+addRiskItem("Market Fluctuations", "High", "Finance"); 
